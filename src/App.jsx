@@ -321,7 +321,7 @@ export default function App() {
             {showAllMembers ? (
               <>Show less <ChevronDown style={{ transform: 'rotate(180deg)' }} size={16} /></>
             ) : (
-              <>View more profiles ({initialMembers.length - 4} remaining) <ChevronDown size={16} /></>
+              <>View more profiles <ChevronDown size={16} /></>
             )}
           </button>
         </div>
