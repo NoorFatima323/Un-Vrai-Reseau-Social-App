@@ -1,0 +1,149 @@
+# 📊 Project & Technical Scope Report for Management
+**Project Title:** Un Vrai Réseau Social  
+**Target Platform:** 100% Smartphone Mobile Web Application  
+**Document Type:** Technical & Feature Implementation Breakdown  
+**Prepared For:** Engineering Manager / Team Lead  
+**Date:** August 9, 2026  
+
+---
+
+## 📌 Executive Summary
+
+This report provides a detailed breakdown of the user stories, technical requirements, MVP boundaries, and UI/UX design specifications for **"Un Vrai Réseau Social"**.
+
+- **Core Value Proposition:** A mobile-first social discovery web app connecting people to arrange **in-person, real-world meetings** (*des rencontres en vrai*) around shared passions, interests, and educational topics.
+- **Monetization & Payment Handling:** Peer-to-peer model. Users define their hourly rates, but **all financial transactions occur in person outside the platform**. The app handles discovery, matching, and messaging only. Currency is strictly **Euro (€)**.
+- **Platform Scope:** **100% Smartphone Mobile Web Application**. Desktop/tablet views are out of scope for MVP.
+- **Design Mockup Directive:** Provided design files (`Landing Page`, `Profile Page`, `Chats Page`) are for **aesthetic/layout reference only**. Implementation follows the **MVP User Stories & Client Q&A decisions**.
+
+---
+
+## 🛠️ Detailed User Story & Feature Implementation Breakdown
+
+Here is the exact step-by-step specification for how each module will be built and function in the mobile application:
+
+### 1. User Accounts & Authentication Module
+- **Sign Up & Account Creation:** Email + password registration form optimized for touch input.
+- **Email Verification:** System sends a verification link/OTP to confirm valid email address before full platform access.
+- **Login / Logout & Session:** Token-based authentication (JWT or session cookie) with "Remember Me" option.
+- **Password Recovery:** "Forgot Password" workflow generating a secure reset token via email.
+- **Profile & Password Edits:** Users can update credentials, security settings, and profile details anytime.
+- **Account Deletion:** Self-service account deletion option adhering to GDPR compliance.
+
+### 2. User Profile & Data Model
+Every user profile will store and display the following fields:
+- **Profile Photo & Gallery:** 1 main profile avatar + photo gallery carousel.
+- **Basic Metadata:** Display Name (*Pseudo*), Age, City (Text name only).
+- **Location Privacy:** Exact street address and live GPS tracks are **never** collected or shown. Distance calculations take place in the background using city Lat/Long coordinates.
+- **Bio & Goal Selection:** Short description text + multi-select dropdown for site goals:
+  - `Discuter`
+  - `Partager mon expérience`
+  - `Apprendre`
+  - `Rencontrer de nouvelles personnes`
+- **Expertise Level:** Single-select dropdown (`Débutant`, `Amateur`, `Intermédiaire`, `Expérimenté`, `Expert`).
+- **Languages Spoken:** Multi-select language tags.
+- **Topics Offered vs. Hobbies (2 Distinct Tag Lists):**
+  - **Sujets proposés:** Specific topics the user offers to meet up and discuss. (New user-created topics are auto-approved for MVP).
+  - **Intérêts:** Personal passions and hobbies.
+- **Availability Selection:** Multi-choice list (`Tous les jours`, `En semaine`, `Week-end`, `Matin`, `Après-midi`, `Soir`). *No interactive calendar picker for MVP.*
+- **Travel Radius & Spots:** Preferred meeting spot types (Café, Park, Library) and max displacement radius in **Kilometers (KM)**.
+- **Fixed Meeting Rates:** Single global rate card per user for 4 predefined time durations:
+  - 15 Minutes (€)
+  - 30 Minutes (€)
+  - 1 Hour (€)
+  - 2 Hours (€)
+
+### 3. Search & Discovery Engine
+- **Search Parameters:** Filter by Topic, City, Max Distance Radius (KM), Price Range, Availability.
+- **Filtering Logic:** Strict **AND logic** (all active filters must be satisfied simultaneously).
+- **Distance Calculation:** Spherical distance math based on searching user's city Lat/Long vs. candidate's city Lat/Long.
+- **Results Display:** Touch-friendly card view showing profile picture, name, age, city, distance from user (e.g. `à 2.3 km`), main topic tags, and hourly rate.
+
+### 4. Explorer Directory
+- Scrollable list of user profiles.
+- **Sorting Mechanisms:**
+  - Most Recent (*Plus récents*)
+  - Proximity / Distance (*Distance*)
+  - Price (*Prix*)
+
+### 5. Private Messaging & Safety Module
+- **1-on-1 Chat Threads:** Direct messaging between connected users.
+- **Supported Media:** Text messages and Photo attachments (Videos & document files excluded for MVP).
+- **Read Receipts:** Visual indicator (*accusé de lecture*) when a message is read.
+- **User Safety Controls:**
+  - **Instant Block:** Immediately hides conversation and blocks all future contact.
+  - **Report User:** Submits a report flag to the admin queue for review.
+
+### 6. Administration & Moderation
+- **User Operations:** View user list, suspend user accounts, or permanently delete accounts.
+- **Report Audit Queue:** View user reports, read flagged message context, and take action (dismiss/suspend).
+- **Topic Management:** Overview of user-submitted and system topic tags.
+
+### 7. Information & Static Pages
+- How It Works (*Comment ça marche*)
+- Trust Charter (*Charte de confiance*)
+- Terms of Service (*CGU*) & Privacy Policy
+- Contact & FAQ
+
+---
+
+## 🔄 MVP Scope Reconciliation Matrix
+
+| Feature Area | Reference Design Mockup | MVP User Stories & Client Q&A | Implementation Decision |
+| :--- | :--- | :--- | :--- |
+| **Viewport / Layout** | Desktop & Tablet views | Smartphone only (Q#15) | **100% Mobile Web Layout** (~375px width). |
+| **Ratings & Reviews** | 5-Star ratings & written reviews | Excluded for MVP (Q#11, 16, 17, 18) | **Omitted completely** from MVP profiles & cards. |
+| **Availability** | Interactive weekly calendar grid | Text preset list (Q#4) | **Multi-select tags** (Weekends, Evenings, etc.). |
+| **Location Data** | Live map pin / exact location | City name only (Q#1) | **City name displayed**; Lat/Long used only for KM calculation. |
+| **Chat Media** | Full file attachments | Text + Photos only (Q#13) | **Text and image uploads supported only**. |
+| **Topic Approval** | Admin approval workflow | Instant auto-accept (Q#19) | **Users can add new topics instantly**. |
+
+---
+
+## 📱 Mobile UI Architecture & Screen Flow
+
+The mobile web UI will feature a persistent **Fixed Bottom Navigation Bar**:
+
+```mermaid
+flowchart TD
+    Nav[Mobile Bottom Navigation Bar] --> Tab1[🏠 Accueil / Home]
+    Nav --> Tab2[💬 Messages / Chats]
+    Nav --> Tab3[➕ Action Button]
+    Nav --> Tab4[🔍 Explorer / Search]
+    Nav --> Tab5[👤 Profil / Account]
+    
+    Tab1 --> HomeView[Hero Banner + Search Bar + Category Pills + New Members Carousel]
+    Tab4 --> SearchResultView[Filter Sheet + Distance Cards List]
+    Tab2 --> ThreadList[Chat Conversations List -> 1-on-1 Chat Screen]
+    Tab5 --> ProfileView[Avatar + Bio + Rates Table + Topics Tags + Availability]
+```
+
+---
+
+## ❓ Key Technical & Design Questions for Manager / Lead Review
+
+Please review and confirm the following key decision points:
+
+### 1. Language & Localization (i18n Scope)
+- **Context:** The reference mockups and requirements are in French (*"Un Vrai Réseau Social"*).
+- **Question:** Should we build the MVP strictly in **French only**, or should we set up **i18n localization (French + English)** from Day 1?
+
+### 2. UI Theme Support (Light vs. Dark Mode)
+- **Context:** The reference design features a clean **Light Theme** (White background with `#D81B43` Crimson Red accents).
+- **Question:** Should we develop exclusively in **Light Theme** as per mockups, or would adding a **Dark Theme** toggle be preferred/encouraged for mobile users?
+
+### 3. Recommended Tech Stack & Backend Setup
+- **Question:** Do you have a preferred stack for this project?
+  - *Recommended Frontend:* React + Vite / Next.js (Tailwind / Vanilla CSS, mobile-first responsive).
+  - *Recommended Backend & Database:* Node.js / Python FastAPI + PostgreSQL (for relational data & spherical distance queries) or Firebase/Supabase (for real-time messaging & storage).
+
+### 4. Admin Panel Access
+- **Question:** Should the Admin Moderation dashboard be accessible via a hidden mobile route/role or a separate web URL (`/admin`)?
+
+---
+
+## 🚀 Recommended Next Steps
+
+1. **Manager Approval:** Confirm answers to the 4 questions above.
+2. **Wireframing:** Produce 100% Smartphone Figma/layout wireframes matching the approved MVP feature list.
+3. **Sprint Planning:** Phase 1 (Auth & Profile Data Model) -> Phase 2 (Search Engine & Explorer) -> Phase 3 (Messaging & Admin Moderation).
