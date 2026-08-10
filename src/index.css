@@ -598,31 +598,15 @@ body {
 .card-rate-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 4px 6px;
-  margin-top: 2px;
+  justify-content: flex-end;
+  border-top: 1px dashed var(--border-light);
+  padding-top: 4px;
 }
 
-.meetup-type-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 0.62rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.rate-amount-badge {
-  font-size: 0.76rem;
+.rate-amount {
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--primary);
-  background-color: white;
-  padding: 2px 6px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 .member-tags {

@@ -345,12 +345,9 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Balanced Rate & Currency Row (Manager Order) */}
+                {/* Rate Row */}
                 <div className="card-rate-row">
-                  <span className="meetup-type-badge">
-                    <Clock size={10} /> 1-on-1 Meetup
-                  </span>
-                  <span className="rate-amount-badge">{member.rate}</span>
+                  <span className="rate-amount">{member.rate}</span>
                 </div>
 
                 {/* Tags Row */}
