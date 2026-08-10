@@ -31,7 +31,9 @@ import {
   Stethoscope,
   BookOpen,
   ChevronRight,
-  ChevronDown
+  ChevronDown,
+  SlidersHorizontal,
+  X
 } from 'lucide-react';
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTopic, setSearchTopic] = useState('');
   const [searchCity, setSearchCity] = useState('');
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Sample Member Data (8 Profiles)
   const initialMembers = [
@@ -201,33 +204,71 @@ export default function App() {
         </button>
       </section>
 
-      {/* Search Bar Section */}
+      {/* Search Bar Section (Compact on mobile, expands on click per Manager Order) */}
       <section className="search-container">
-        <div className="input-wrapper">
-          <Search className="input-icon" />
-          <input
-            type="text"
-            className="search-input"
-            placeholder="What would you like to discuss?"
-            value={searchTopic}
-            onChange={(e) => setSearchTopic(e.target.value)}
-          />
-        </div>
+        {!isFilterOpen ? (
+          <div
+            className="compact-search-bar"
+            onClick={() => setIsFilterOpen(true)}
+          >
+            <div className="compact-search-info">
+              <Search className="compact-icon" size={18} />
+              <div className="compact-text-group">
+                <span className="compact-main-text">
+                  {searchTopic ? searchTopic : "What would you like to discuss?"}
+                </span>
+                <span className="compact-sub-text">
+                  {searchCity ? `In ${searchCity}` : "City or neighborhood · Any topic"}
+                </span>
+              </div>
+            </div>
+            <button className="btn-compact-tune" aria-label="Open filter">
+              <SlidersHorizontal size={16} />
+            </button>
+          </div>
+        ) : (
+          <div className="expanded-search-box">
+            <div className="filter-header">
+              <span className="filter-title">Search filters</span>
+              <button
+                className="btn-close-filter"
+                onClick={() => setIsFilterOpen(false)}
+              >
+                Close <X size={14} />
+              </button>
+            </div>
 
-        <div className="input-wrapper">
-          <MapPin className="input-icon" />
-          <input
-            type="text"
-            className="search-input"
-            placeholder="City or neighborhood"
-            value={searchCity}
-            onChange={(e) => setSearchCity(e.target.value)}
-          />
-        </div>
+            <div className="input-wrapper">
+              <Search className="input-icon" />
+              <input
+                type="text"
+                className="search-input"
+                placeholder="What would you like to discuss?"
+                value={searchTopic}
+                onChange={(e) => setSearchTopic(e.target.value)}
+                autoFocus
+              />
+            </div>
 
-        <button className="btn-search">
-          <Search size={18} /> Search
-        </button>
+            <div className="input-wrapper">
+              <MapPin className="input-icon" />
+              <input
+                type="text"
+                className="search-input"
+                placeholder="City or neighborhood"
+                value={searchCity}
+                onChange={(e) => setSearchCity(e.target.value)}
+              />
+            </div>
+
+            <button
+              className="btn-search"
+              onClick={() => setIsFilterOpen(false)}
+            >
+              <Search size={18} /> Search
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Horizontal Scrollable Categories Pills (Lead Directive) */}
