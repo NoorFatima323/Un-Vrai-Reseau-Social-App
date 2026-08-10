@@ -54,6 +54,8 @@ export default function App() {
       topic: 'Psychology',
       topicIcon: Brain,
       rate: '20 €/h',
+      rating: '4,9',
+      reviews: '24',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
       bio: 'Passionate about clinical psychology, cognitive behavior, and human relationships.',
       tags: ['Reading', 'Yoga']
@@ -66,6 +68,8 @@ export default function App() {
       topic: 'History',
       topicIcon: Landmark,
       rate: '18 €/h',
+      rating: '4,8',
+      reviews: '18',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
       bio: 'Enthusiast of ancient civilizations, geopolitics, and world history.',
       tags: ['History', 'Geopolitics']
@@ -78,6 +82,8 @@ export default function App() {
       topic: 'Art & Design',
       topicIcon: Palette,
       rate: '20 €/h',
+      rating: '4,9',
+      reviews: '32',
       image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
       bio: 'Painter and UI designer. I love exchanging about creative processes & design.',
       tags: ['Painting', 'Design']
@@ -90,6 +96,8 @@ export default function App() {
       topic: 'Marketing',
       topicIcon: TrendingUp,
       rate: '25 €/h',
+      rating: '4,7',
+      reviews: '15',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
       bio: 'Philosophy enthusiast and digital strategist exploring modern communication.',
       tags: ['Photo', 'Business']
@@ -102,6 +110,8 @@ export default function App() {
       topic: 'Archaeology',
       topicIcon: Landmark,
       rate: '35 €/h',
+      rating: '4,9',
+      reviews: '41',
       image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80',
       bio: 'Amateur archaeologist exploring ancient ruins, space sciences, and history.',
       tags: ['Science', 'Travel']
@@ -114,6 +124,8 @@ export default function App() {
       topic: 'Literature',
       topicIcon: BookOpen,
       rate: '22 €/h',
+      rating: '4,8',
+      reviews: '29',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
       bio: 'Poetry lover and literature teacher. Enjoy deep literary debates over coffee.',
       tags: ['Books', 'Poetry']
@@ -126,6 +138,8 @@ export default function App() {
       topic: 'IT & Tech',
       topicIcon: Laptop,
       rate: '30 €/h',
+      rating: '5,0',
+      reviews: '12',
       image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80',
       bio: 'Software engineer passionate about AI, open-source tech, and digital privacy.',
       tags: ['Coding', 'AI']
@@ -138,6 +152,8 @@ export default function App() {
       topic: 'Philosophy',
       topicIcon: Brain,
       rate: '24 €/h',
+      rating: '4,9',
+      reviews: '37',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80',
       bio: 'Ethics researcher exploring logic, consciousness, and social dynamics.',
       tags: ['Ethics', 'Logic']
@@ -345,8 +361,13 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Rate Row */}
+                {/* Rate & Rating Review Row (Matching Landing Page Mockup) */}
                 <div className="card-rate-row">
+                  <div className="rating-badge">
+                    <Star className="star-icon" size={11} />
+                    <span className="rating-score">{member.rating}</span>
+                    <span className="rating-count">({member.reviews})</span>
+                  </div>
                   <span className="rate-amount">{member.rate}</span>
                 </div>
 
