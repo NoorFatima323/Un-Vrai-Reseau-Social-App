@@ -30,10 +30,11 @@ import {
   Utensils,
   Stethoscope,
   BookOpen,
+  SlidersHorizontal,
   ChevronRight,
   ChevronDown,
-  SlidersHorizontal,
-  X
+  X,
+  Clock
 } from 'lucide-react';
 
 export default function App() {
@@ -204,32 +205,35 @@ export default function App() {
         </button>
       </section>
 
-      {/* Search Bar Section (Compact on mobile, expands on click per Manager Order) */}
+      {/* Search Bar Section (Default search bar with outside filter icon per Manager Order) */}
       <section className="search-container">
         {!isFilterOpen ? (
-          <div
-            className="compact-search-bar"
-            onClick={() => setIsFilterOpen(true)}
-          >
-            <div className="compact-search-info">
-              <Search className="compact-icon" size={18} />
-              <div className="compact-text-group">
-                <span className="compact-main-text">
-                  {searchTopic ? searchTopic : "What would you like to discuss?"}
-                </span>
-                <span className="compact-sub-text">
-                  {searchCity ? `In ${searchCity}` : "City or neighborhood · Any topic"}
-                </span>
-              </div>
+          <div className="default-search-row">
+            <div
+              className="search-input-wrapper"
+              onClick={() => setIsFilterOpen(true)}
+            >
+              <Search className="search-input-icon" size={16} />
+              <input
+                type="text"
+                className="main-search-input"
+                placeholder={searchTopic ? searchTopic : "What would you like to discuss?"}
+                readOnly
+              />
             </div>
-            <button className="btn-compact-tune" aria-label="Open filter">
-              <SlidersHorizontal size={16} />
+            <button
+              className="btn-filter-outside"
+              onClick={() => setIsFilterOpen(true)}
+              aria-label="Open advance filter"
+              title="Advance filter"
+            >
+              <SlidersHorizontal size={17} />
             </button>
           </div>
         ) : (
           <div className="expanded-search-box">
             <div className="filter-header">
-              <span className="filter-title">Search filters</span>
+              <span className="filter-title">Advanced search filters</span>
               <button
                 className="btn-close-filter"
                 onClick={() => setIsFilterOpen(false)}
@@ -341,9 +345,12 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Rate Row (No Ratings shown per Manager Order) */}
+                {/* Balanced Rate & Currency Row (Manager Order) */}
                 <div className="card-rate-row">
-                  <span className="rate-amount">{member.rate}</span>
+                  <span className="meetup-type-badge">
+                    <Clock size={10} /> 1-on-1 Meetup
+                  </span>
+                  <span className="rate-amount-badge">{member.rate}</span>
                 </div>
 
                 {/* Tags Row */}
