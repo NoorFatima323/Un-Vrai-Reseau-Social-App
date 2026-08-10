@@ -24,11 +24,11 @@
 
 html, body {
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
-  background-color: #0F172A;
+  background-color: var(--bg-main);
   font-family: var(--font-family);
   color: var(--text-main);
   -webkit-tap-highlight-color: transparent;
@@ -42,22 +42,37 @@ html, body {
 
 body {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  width: 100%;
+  background-color: var(--bg-main);
+  overflow-x: hidden;
 }
 
-/* Device Wrapper for Desktop Preview & Mobile Viewport */
+/* Device Wrapper for Mobile & Desktop */
 .device-container {
   width: 100%;
   max-width: 440px;
+  margin: 0 auto;
   background-color: var(--bg-main);
   min-height: 100vh;
   position: relative;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   overflow-x: hidden;
   box-sizing: border-box;
   padding-bottom: 85px; /* space for fixed bottom nav */
+}
+
+/* On Desktop Monitors (>440px width), show centered mobile preview frame */
+@media (min-width: 441px) {
+  html, body {
+    background-color: #0F172A;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .device-container {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+  }
 }
 
 /* Header Bar */
