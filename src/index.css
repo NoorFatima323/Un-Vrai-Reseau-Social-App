@@ -60,7 +60,7 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-light);
-  padding: 12px 16px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,10 +136,12 @@ body {
 
 /* Hero Section (No Image in First Div per Lead Order) */
 .hero-section {
-  padding: 24px 18px 20px;
+  padding: 28px 24px 24px;
   text-align: left;
   background: linear-gradient(180deg, #FFF0F3 0%, #FFFFFF 100%);
   border-bottom: 1px solid var(--border-light);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-heading {
@@ -186,10 +188,10 @@ body {
 
 /* Search Box Container */
 .search-container {
-  padding: 16px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   background: white;
 }
 
@@ -250,7 +252,7 @@ body {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 0 16px 6px;
+  padding: 0 20px 8px;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
 }
@@ -293,7 +295,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 16px 12px;
+  padding: 24px 20px 14px;
 }
 
 .section-title {
@@ -329,7 +331,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  padding: 0 16px 16px;
+  padding: 0 20px 20px;
 }
 
 .member-card {
@@ -441,7 +443,7 @@ body {
 
 /* View More Button Container */
 .view-more-container {
-  padding: 0 16px 20px;
+  padding: 0 20px 24px;
   text-align: center;
 }
 
@@ -469,7 +471,7 @@ body {
 /* How It Works Section */
 .how-it-works-section {
   background-color: var(--bg-secondary);
-  padding: 20px 16px;
+  padding: 24px 20px;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
@@ -520,7 +522,7 @@ body {
 
 /* Trust Section */
 .trust-section {
-  padding: 20px 16px;
+  padding: 24px 20px;
 }
 
 .trust-grid {
@@ -570,7 +572,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  padding: 0 16px 20px;
+  padding: 0 20px 24px;
 }
 
 .topic-chip {
@@ -595,10 +597,10 @@ body {
 
 /* Registration Footer Banner */
 .footer-banner {
-  margin: 10px 16px 24px;
+  margin: 16px 20px 28px;
   background: var(--primary-gradient);
   border-radius: var(--radius-lg);
-  padding: 20px 16px;
+  padding: 24px 20px;
   color: white;
   text-align: center;
   box-shadow: var(--shadow-lg);
@@ -640,7 +642,7 @@ body {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-color);
-  padding: 8px 12px 10px;
+  padding: 10px 20px 12px;
   display: flex;
   align-items: center;
   justify-content: space-around;
