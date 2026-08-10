@@ -316,38 +316,47 @@ export default function App() {
             const TopicIcon = member.topicIcon;
             return (
               <div key={member.id} className="member-card">
-                <div className="card-image-wrapper">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="card-image"
-                  />
-                  <span className="card-price-tag">{member.rate}</span>
-                </div>
-
-                <div className="card-content">
-                  <div className="member-name-age">
-                    {member.name}, {member.age}
+                {/* Header with Circular Avatar & Info */}
+                <div className="card-top-header">
+                  <div className="avatar-wrapper">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="avatar-img"
+                    />
                   </div>
 
-                  <div className="member-location">
-                    <MapPin size={11} /> {member.city}
-                  </div>
+                  <div className="member-info-col">
+                    <div className="member-name-age">
+                      {member.name}, {member.age}
+                    </div>
 
-                  <div className="member-topic-badge">
-                    <TopicIcon size={11} /> {member.topic}
-                  </div>
+                    <div className="member-topic-badge">
+                      <TopicIcon size={10} /> {member.topic}
+                    </div>
 
-                  <p className="member-bio">{member.bio}</p>
-
-                  <div className="member-tags">
-                    {member.tags.map((tag, i) => (
-                      <span key={i} className="mini-tag">
-                        {tag}
-                      </span>
-                    ))}
+                    <div className="member-location">
+                      <MapPin size={10} /> {member.city}
+                    </div>
                   </div>
                 </div>
+
+                {/* Rate Row (No Ratings shown per Manager Order) */}
+                <div className="card-rate-row">
+                  <span className="rate-amount">{member.rate}</span>
+                </div>
+
+                {/* Tags Row */}
+                <div className="member-tags">
+                  {member.tags.map((tag, i) => (
+                    <span key={i} className="mini-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Short Bio Snippet */}
+                <p className="member-bio">{member.bio}</p>
               </div>
             );
           })}
