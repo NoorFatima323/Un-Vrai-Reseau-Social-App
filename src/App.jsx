@@ -38,7 +38,8 @@ import {
   Menu,
   Calendar,
   Rocket,
-  Handshake
+  Handshake,
+  Users
 } from 'lucide-react';
 
 export default function App() {
@@ -580,43 +581,51 @@ export default function App() {
         </div>
       </section>
 
-      {/* Trust & Community Section */}
+      {/* Trust & Community Section ("Pour une communauté de confiance") */}
       <section className="trust-section">
         <h2 className="section-title">
-          <ShieldCheck className="title-icon" /> Trusted Community
+          <Users className="title-icon dark-icon" /> For a trusted community
         </h2>
 
         <div className="trust-grid">
-          <div className="trust-card">
-            <div className="trust-icon-box">
-              <ShieldCheck size={18} />
+          <div className="trust-card blue-tint">
+            <div className="trust-icon-box blue">
+              <ShieldCheck size={22} className="trust-icon" />
             </div>
-            <h4>Respect others</h4>
-            <p>Kindness and mutual respect are the bases of our community.</p>
+            <h4 className="trust-card-title">Respect others</h4>
+            <p className="trust-card-desc">
+              Kindness and mutual respect are the bases of our community.
+            </p>
           </div>
 
-          <div className="trust-card">
-            <div className="trust-icon-box">
-              <Lock size={18} />
+          <div className="trust-card purple-tint">
+            <div className="trust-icon-box purple">
+              <Lock size={22} className="trust-icon" />
             </div>
-            <h4>Protect privacy</h4>
-            <p>Never share sensitive personal info publicly.</p>
+            <h4 className="trust-card-title">Protect your privacy</h4>
+            <p className="trust-card-desc">
+              Never share personal details (phone, address, social media...).
+            </p>
           </div>
 
-          <div className="trust-card">
-            <div className="trust-icon-box">
-              <Flag size={18} />
+          <div className="trust-card red-tint">
+            <div className="trust-icon-box red">
+              <Flag size={22} className="trust-icon" />
             </div>
-            <h4>Report issues</h4>
-            <p>In case of inappropriate behavior, report it immediately.</p>
+            <h4 className="trust-card-title">Report a problem</h4>
+            <p className="trust-card-desc">
+              In case of inappropriate behavior, report it to our team.
+            </p>
           </div>
 
-          <div className="trust-card">
-            <div className="trust-icon-box">
-              <Star size={18} />
+          <div className="trust-card yellow-tint">
+            <div className="trust-icon-box yellow">
+              <Star size={22} className="trust-icon filled" />
             </div>
-            <h4>Safe Meetups</h4>
-            <p>Meet in public places like cafés and libraries.</p>
+            <h4 className="trust-card-title">Leave a review</h4>
+            <p className="trust-card-desc">
+              After your meetup, leave a review to help the community.
+            </p>
           </div>
         </div>
       </section>

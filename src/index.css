@@ -916,57 +916,114 @@ body {
   border-top: 2px dashed #CBD5E1;
 }
 
-/* Trust Section */
+/* Trust & Community Section ("Pour une communauté de confiance") */
 .trust-section {
-  padding: 20px 16px;
+  padding: 22px 16px;
   width: 100%;
   box-sizing: border-box;
+  background-color: white;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.title-icon.dark-icon {
+  color: var(--text-main);
 }
 
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 14px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .trust-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 12px 8px;
-  text-align: center;
+  border-radius: var(--radius-lg);
+  padding: 16px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  min-width: 0;
+  text-align: center;
   box-sizing: border-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid transparent;
 }
 
+.trust-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Card Tint Backgrounds matching Image 1 */
+.trust-card.blue-tint {
+  background-color: #F0F6FE;
+  border-color: #E0EDFD;
+}
+
+.trust-card.purple-tint {
+  background-color: #F8F5FE;
+  border-color: #EFE9FE;
+}
+
+.trust-card.red-tint {
+  background-color: #FFF1F3;
+  border-color: #FFE4E8;
+}
+
+.trust-card.yellow-tint {
+  background-color: #FFFBF0;
+  border-color: #FEF3C7;
+}
+
+/* Icon Box Styles */
 .trust-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--primary-light);
-  color: var(--primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-.trust-card h4 {
-  font-size: 0.75rem;
+.trust-icon-box.blue {
+  background-color: #DBEAFE;
+  color: #2563EB;
+}
+
+.trust-icon-box.purple {
+  background-color: #EDE9FE;
+  color: #7C3AED;
+}
+
+.trust-icon-box.red {
+  background-color: #FFE4E6;
+  color: #E11D48;
+}
+
+.trust-icon-box.yellow {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.trust-icon.filled {
+  fill: #F59E0B;
+  color: #F59E0B;
+}
+
+.trust-card-title {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
   font-weight: 700;
   color: var(--text-main);
+  margin-bottom: 4px;
 }
 
-.trust-card p {
-  font-size: 0.65rem;
+.trust-card-desc {
+  font-size: 0.68rem;
   color: var(--text-muted);
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 /* Popular Topics Grid */
