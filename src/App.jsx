@@ -207,20 +207,41 @@ export default function App() {
         </div>
       </header>
 
-      {/* Hero Section (No Image in First Div per Lead Directive) */}
+      {/* Hero Section (Matching Landing Page.jpeg reference) */}
       <section className="hero-section">
-        <h1 className="hero-heading">
-          Real discussions.
-          <br />
-          Real meetups.
-          <span className="highlight">In person.</span>
-        </h1>
-        <p className="hero-subtitle">
-          Exchange, learn, share your passions and meet inspiring people who matter in real life.
-        </p>
-        <button className="btn-primary">
-          Register for free <ArrowRight size={16} />
-        </button>
+        <div className="hero-content">
+          <div className="hero-text-col">
+            <h1 className="hero-heading">
+              Real discussions.
+              <br />
+              Real meetups.
+              <span className="highlight">In person.</span>
+            </h1>
+            <p className="hero-subtitle">
+              Exchange, learn, share your passions and meet inspiring people who matter in real life.
+            </p>
+            <button className="btn-primary">
+              Register for free <ArrowRight size={16} />
+            </button>
+          </div>
+
+          <div className="hero-media-col">
+            <div className="hero-image-card">
+              <img
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                alt="Real meetups cafe discussion"
+                className="hero-img"
+              />
+            </div>
+            <div className="hero-dots">
+              <span className="dot active"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+              <span className="dot"></span>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Search Bar Section (Default search bar with outside filter icon per Manager Order) */}

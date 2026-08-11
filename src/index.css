@@ -173,6 +173,19 @@ body {
   box-sizing: border-box;
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .hero-heading {
   font-family: var(--font-heading);
   font-size: 1.55rem;
@@ -215,6 +228,52 @@ body {
 
 .btn-primary:active {
   transform: scale(0.98);
+}
+
+.hero-media-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.hero-image-card {
+  width: 100%;
+  height: 165px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-light);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.hero-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+  transition: all 0.2s;
+}
+
+.hero-dots .dot.active {
+  background-color: var(--primary);
+  width: 9px;
+  height: 9px;
 }
 
 /* Search Box Container */
