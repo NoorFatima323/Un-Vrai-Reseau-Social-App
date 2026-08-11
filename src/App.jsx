@@ -250,7 +250,7 @@ export default function App() {
     { name: 'Literature', icon: BookOpen }
   ];
 
-  // 15 Popular Topics Data with exact pastel colors and icons matching Landing Page mockup
+  // 16 Popular Topics Data (4 rows x 4 chips per row = 16 chips total)
   const popularTopics = [
     { name: 'History', icon: Landmark, bg: '#FFF1F3', color: '#E11D48' },
     { name: 'Science', icon: FlaskConical, bg: '#F0F6FE', color: '#2563EB' },
@@ -266,7 +266,8 @@ export default function App() {
     { name: 'Photography', icon: Camera, bg: '#FFE4E6', color: '#E11D48' },
     { name: 'Cooking', icon: Utensils, bg: '#FFEDD5', color: '#EA580C' },
     { name: 'Medicine', icon: Stethoscope, bg: '#E0F2FE', color: '#0284C7' },
-    { name: 'Literature', icon: BookOpen, bg: '#E0E7FF', color: '#4F46E5' }
+    { name: 'Literature', icon: BookOpen, bg: '#E0E7FF', color: '#4F46E5' },
+    { name: 'Art & Design', icon: Palette, bg: '#F3E8FF', color: '#9333EA' }
   ];
 
   return (
