@@ -211,13 +211,12 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #E31B4C 0%, #C2183B 100%);
   background-color: var(--primary);
   color: white;
   border: none;
   padding: 9px 18px;
   border-radius: 9999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.82rem;
   display: inline-flex;
   align-items: center;
@@ -225,11 +224,12 @@ body {
   gap: 6px;
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(216, 27, 67, 0.25);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition: transform 0.15s, box-shadow 0.2s, background-color 0.2s;
   width: fit-content;
 }
 
 .btn-primary:hover {
+  background-color: var(--primary-dark);
   transform: translateY(-1px);
   box-shadow: 0 5px 14px rgba(216, 27, 67, 0.35);
 }
@@ -396,9 +396,9 @@ body {
   background-color: var(--primary);
   color: white;
   border: none;
-  border-radius: var(--radius-lg);
-  padding: 11px 18px;
-  font-size: 0.86rem;
+  border-radius: 9999px;
+  padding: 9px 18px;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(216, 27, 67, 0.25);
@@ -987,12 +987,18 @@ body {
   background-color: white;
   color: var(--primary);
   border: none;
-  padding: 10px 20px;
-  border-radius: var(--radius-full);
+  padding: 9px 18px;
+  border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.15s, background-color 0.2s;
+}
+
+.btn-white:hover {
+  background-color: #FFF5F7;
+  transform: translateY(-1px);
 }
 
 /* Fixed Mobile Bottom Navigation Bar */
