@@ -1017,21 +1017,27 @@ body {
 
 .popular-topics-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 14px;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (min-width: 400px) {
+  .popular-topics-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .topic-chip {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 8px 4px;
+  gap: 5px;
+  padding: 9px 6px;
   border-radius: var(--radius-md);
-  font-size: 0.70rem;
+  font-size: 0.74rem;
   font-weight: 600;
   color: var(--text-main);
   cursor: pointer;
