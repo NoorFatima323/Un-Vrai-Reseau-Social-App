@@ -34,7 +34,9 @@ import {
   ChevronRight,
   ChevronDown,
   X,
-  Clock
+  Clock,
+  Menu,
+  Calendar
 } from 'lucide-react';
 
 export default function App() {
@@ -200,7 +202,7 @@ export default function App() {
             <span className="notification-badge">3</span>
           </button>
           <button className="header-icon-btn" aria-label="Menu">
-            <User size={20} />
+            <Menu size={20} />
           </button>
         </div>
       </header>
