@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
   Search,
@@ -31,7 +31,6 @@ import {
   Stethoscope,
   BookOpen,
   SlidersHorizontal,
-  ChevronLeft,
   ChevronRight,
   ChevronDown,
   X,
@@ -79,6 +78,38 @@ export default function App() {
 
   const prevHeroSlide = () => {
     setCurrentHeroSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  // Auto-play slideshow timer (changes photo every 4s)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
+  // Touch Swipe Handlers for mobile gestures
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > 40) {
+      nextHeroSlide(); // Swiped left -> Next
+    } else if (distance < -40) {
+      prevHeroSlide(); // Swiped right -> Previous
+    }
+    setTouchStartX(0);
+    setTouchEndX(0);
   };
 
   // Sample Member Data (8 Profiles)
@@ -261,26 +292,19 @@ export default function App() {
           </div>
 
           <div className="hero-media-col">
-            <div className="hero-image-card">
+            <div
+              className="hero-image-card"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onClick={nextHeroSlide}
+              title="Swipe or tap to change photo"
+            >
               <img
                 src={heroImages[currentHeroSlide].url}
                 alt={heroImages[currentHeroSlide].alt}
                 className="hero-img"
               />
-              <button
-                className="carousel-arrow left"
-                onClick={prevHeroSlide}
-                aria-label="Previous slide"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                className="carousel-arrow right"
-                onClick={nextHeroSlide}
-                aria-label="Next slide"
-              >
-                <ChevronRight size={18} />
-              </button>
             </div>
 
             <div className="hero-dots">
@@ -288,8 +312,11 @@ export default function App() {
                 <span
                   key={idx}
                   className={`dot ${currentHeroSlide === idx ? 'active' : ''}`}
-                  onClick={() => setCurrentHeroSlide(idx)}
-                  title={`Go to slide ${idx + 1}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentHeroSlide(idx);
+                  }}
+                  title={`Go to photo ${idx + 1}`}
                 />
               ))}
             </div>
