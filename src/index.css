@@ -804,56 +804,116 @@ body {
 
 /* How It Works Section */
 .how-it-works-section {
-  background-color: var(--bg-secondary);
-  padding: 20px 16px;
+  background-color: var(--bg-main);
+  padding: 22px 16px 24px;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
   width: 100%;
   box-sizing: border-box;
 }
 
-.steps-list {
+.steps-container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 4px;
+  margin-top: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.step-card {
+.steps-container::-webkit-scrollbar {
+  display: none;
+}
+
+.step-item {
+  flex: 1;
+  min-width: 115px;
   background: white;
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 12px 14px;
+  border-radius: var(--radius-lg);
+  padding: 14px 8px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  box-shadow: var(--shadow-sm);
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
 }
 
-.step-number {
-  background-color: var(--primary);
-  color: white;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 0.78rem;
+.step-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.step-top-header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 8px;
+}
+
+.step-num-badge {
+  position: absolute;
+  top: -4px;
+  left: -8px;
+  background-color: var(--primary);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.68rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(216, 27, 67, 0.3);
+  z-index: 2;
+}
+
+.step-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 27, 67, 0.15);
+}
+
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.32;
+}
+
+.step-arrow-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: -20px;
   flex-shrink: 0;
 }
 
-.step-info h4 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.step-info p {
-  font-size: 0.73rem;
-  color: var(--text-muted);
-  margin-top: 2px;
+.dashed-line {
+  width: 14px;
+  height: 0;
+  border-top: 2px dashed #CBD5E1;
 }
 
 /* Trust Section */

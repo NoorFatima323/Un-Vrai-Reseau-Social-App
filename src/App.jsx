@@ -36,7 +36,9 @@ import {
   X,
   Clock,
   Menu,
-  Calendar
+  Calendar,
+  Rocket,
+  Handshake
 } from 'lucide-react';
 
 export default function App() {
@@ -508,40 +510,72 @@ export default function App() {
       {/* How It Works Section ("Comment ça marche ?") */}
       <section className="how-it-works-section">
         <h2 className="section-title">
-          <RocketIcon className="title-icon" /> How it works?
+          <Rocket className="title-icon" /> How it works?
         </h2>
 
-        <div className="steps-list">
-          <div className="step-card">
-            <div className="step-number">1</div>
-            <div className="step-info">
-              <h4>1. Find</h4>
-              <p>Search for a specific topic or person matching your interests.</p>
+        <div className="steps-container">
+          <div className="step-item">
+            <div className="step-top-header">
+              <span className="step-num-badge">1</span>
+              <div className="step-icon-wrapper">
+                <Search size={20} className="step-icon" />
+              </div>
             </div>
+            <h4 className="step-title">Find</h4>
+            <p className="step-desc">
+              Search for a specific topic or person matching your interests.
+            </p>
           </div>
 
-          <div className="step-card">
-            <div className="step-number">2</div>
-            <div className="step-info">
-              <h4>2. Connect</h4>
-              <p>Contact and discuss with the person via private messaging.</p>
-            </div>
+          <div className="step-arrow-divider">
+            <span className="dashed-line"></span>
           </div>
 
-          <div className="step-card">
-            <div className="step-number">3</div>
-            <div className="step-info">
-              <h4>3. Meet Up</h4>
-              <p>Agree on a time, public spot, and duration for your meeting.</p>
+          <div className="step-item">
+            <div className="step-top-header">
+              <span className="step-num-badge">2</span>
+              <div className="step-icon-wrapper">
+                <MessageSquare size={20} className="step-icon" />
+              </div>
             </div>
+            <h4 className="step-title">Connect</h4>
+            <p className="step-desc">
+              Contact and discuss with the person via private messaging.
+            </p>
           </div>
 
-          <div className="step-card">
-            <div className="step-number">4</div>
-            <div className="step-info">
-              <h4>4. Share</h4>
-              <p>Meet in real life, exchange ideas, and enjoy a genuine conversation!</p>
+          <div className="step-arrow-divider">
+            <span className="dashed-line"></span>
+          </div>
+
+          <div className="step-item">
+            <div className="step-top-header">
+              <span className="step-num-badge">3</span>
+              <div className="step-icon-wrapper">
+                <Calendar size={20} className="step-icon" />
+              </div>
             </div>
+            <h4 className="step-title">Meet Up</h4>
+            <p className="step-desc">
+              Agree on a time, public spot, and duration for your meeting.
+            </p>
+          </div>
+
+          <div className="step-arrow-divider">
+            <span className="dashed-line"></span>
+          </div>
+
+          <div className="step-item">
+            <div className="step-top-header">
+              <span className="step-num-badge">4</span>
+              <div className="step-icon-wrapper">
+                <Handshake size={20} className="step-icon" />
+              </div>
+            </div>
+            <h4 className="step-title">Share</h4>
+            <p className="step-desc">
+              Meet in real life, exchange ideas, and enjoy a genuine conversation!
+            </p>
           </div>
         </div>
       </section>
