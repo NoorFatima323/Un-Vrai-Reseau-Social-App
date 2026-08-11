@@ -211,19 +211,25 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary-gradient);
+  background: linear-gradient(135deg, #E31B4C 0%, #C2183B 100%);
   color: white;
   border: none;
-  padding: 12px 22px;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 0.9rem;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.92rem;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   cursor: pointer;
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(216, 27, 67, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(216, 27, 67, 0.4);
 }
 
 .btn-primary:active {
