@@ -1008,38 +1008,48 @@ body {
   line-height: 1.35;
 }
 
-/* Popular Topics Grid */
+/* Popular Topics Section ("Sujets populaires") */
+.popular-topics-section {
+  padding: 20px 16px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .popular-topics-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  padding: 0 16px 20px;
+  margin-top: 12px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .topic-chip {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 9px 10px;
-  font-size: 0.78rem;
+  padding: 8px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-main);
   cursor: pointer;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: border-color 0.2s;
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 0 0 auto;
 }
 
 .topic-chip:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.topic-chip-icon {
+  flex-shrink: 0;
+}
+
+.topic-chip-name {
+  white-space: nowrap;
 }
 
 /* Registration Footer Banner */

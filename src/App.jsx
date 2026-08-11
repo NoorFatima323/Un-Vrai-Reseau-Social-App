@@ -250,6 +250,25 @@ export default function App() {
     { name: 'Literature', icon: BookOpen }
   ];
 
+  // 15 Popular Topics Data with exact pastel colors and icons matching Landing Page mockup
+  const popularTopics = [
+    { name: 'History', icon: Landmark, bg: '#FFF1F3', color: '#E11D48' },
+    { name: 'Science', icon: FlaskConical, bg: '#F0F6FE', color: '#2563EB' },
+    { name: 'Astronomy', icon: Orbit, bg: '#F8F5FE', color: '#7C3AED' },
+    { name: 'Economy', icon: TrendingUp, bg: '#F0FDF4', color: '#16A34A' },
+    { name: 'Travel', icon: Plane, bg: '#FFFBEB', color: '#EA580C' },
+    { name: 'Law', icon: Scale, bg: '#F3E8FF', color: '#9333EA' },
+    { name: 'Sport', icon: Activity, bg: '#ECFDF5', color: '#059669' },
+    { name: 'IT & Code', icon: Laptop, bg: '#EFF6FF', color: '#3B82F6' },
+    { name: 'Psychology', icon: Brain, bg: '#FCE7F3', color: '#DB2777' },
+    { name: 'Environment', icon: Leaf, bg: '#F0FDF4', color: '#15803D' },
+    { name: 'Music', icon: Music, bg: '#FEF3C7', color: '#D97706' },
+    { name: 'Photography', icon: Camera, bg: '#FFE4E6', color: '#E11D48' },
+    { name: 'Cooking', icon: Utensils, bg: '#FFEDD5', color: '#EA580C' },
+    { name: 'Medicine', icon: Stethoscope, bg: '#E0F2FE', color: '#0284C7' },
+    { name: 'Literature', icon: BookOpen, bg: '#E0E7FF', color: '#4F46E5' }
+  ];
+
   return (
     <div className="device-container">
       {/* Mobile Sticky Header */}
@@ -610,22 +629,27 @@ export default function App() {
         </div>
       </section>
 
-      {/* Popular Topics Section */}
-      <section>
+      {/* Popular Topics Section ("Sujets populaires") */}
+      <section className="popular-topics-section">
         <div className="section-header">
           <h2 className="section-title">
             <Flame className="title-icon" /> Popular Topics
           </h2>
-          <button className="see-all-btn">View all</button>
+          <button className="see-all-btn">See all</button>
         </div>
 
         <div className="popular-topics-grid">
-          {categories.slice(0, 8).map((cat, idx) => {
-            const TopicIcon = cat.icon;
+          {popularTopics.map((topic, idx) => {
+            const TopicIcon = topic.icon;
             return (
-              <div key={idx} className="topic-chip">
-                <TopicIcon size={16} style={{ color: '#D81B43' }} />
-                <span>{cat.name}</span>
+              <div
+                key={idx}
+                className="topic-chip"
+                style={{ backgroundColor: topic.bg }}
+                onClick={() => setSearchTopic(topic.name)}
+              >
+                <TopicIcon size={15} style={{ color: topic.color }} className="topic-chip-icon" />
+                <span className="topic-chip-name">{topic.name}</span>
               </div>
             );
           })}
