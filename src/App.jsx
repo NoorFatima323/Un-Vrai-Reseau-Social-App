@@ -348,74 +348,35 @@ export default function App() {
         </div>
       </section>
 
-      {/* Search Bar Section (Default search bar with outside filter icon per Manager Order) */}
+      {/* Search Bar Section (Matching Landing Page.jpeg reference mockup) */}
       <section className="search-container">
-        {!isFilterOpen ? (
-          <div className="default-search-row">
-            <div
-              className="search-input-wrapper"
-              onClick={() => setIsFilterOpen(true)}
-            >
-              <Search className="search-input-icon" size={16} />
-              <input
-                type="text"
-                className="main-search-input"
-                placeholder={searchTopic ? searchTopic : "What would you like to discuss?"}
-                readOnly
-              />
-            </div>
-            <button
-              className="btn-filter-outside"
-              onClick={() => setIsFilterOpen(true)}
-              aria-label="Open advance filter"
-              title="Advance filter"
-            >
-              <SlidersHorizontal size={17} />
-            </button>
+        <div className="search-bar-grid">
+          <div className="search-field-wrapper">
+            <Search className="search-field-icon" size={18} />
+            <input
+              type="text"
+              className="search-field-input"
+              value={searchTopic}
+              onChange={(e) => setSearchTopic(e.target.value)}
+              placeholder="What would you like to discuss?"
+            />
           </div>
-        ) : (
-          <div className="expanded-search-box">
-            <div className="filter-header">
-              <span className="filter-title">Advanced search filters</span>
-              <button
-                className="btn-close-filter"
-                onClick={() => setIsFilterOpen(false)}
-              >
-                Close <X size={14} />
-              </button>
-            </div>
 
-            <div className="input-wrapper">
-              <Search className="input-icon" />
-              <input
-                type="text"
-                className="search-input"
-                placeholder="What would you like to discuss?"
-                value={searchTopic}
-                onChange={(e) => setSearchTopic(e.target.value)}
-                autoFocus
-              />
-            </div>
-
-            <div className="input-wrapper">
-              <MapPin className="input-icon" />
-              <input
-                type="text"
-                className="search-input"
-                placeholder="City or neighborhood"
-                value={searchCity}
-                onChange={(e) => setSearchCity(e.target.value)}
-              />
-            </div>
-
-            <button
-              className="btn-search"
-              onClick={() => setIsFilterOpen(false)}
-            >
-              <Search size={18} /> Search
-            </button>
+          <div className="search-field-wrapper">
+            <MapPin className="search-field-icon" size={18} />
+            <input
+              type="text"
+              className="search-field-input"
+              value={searchCity}
+              onChange={(e) => setSearchCity(e.target.value)}
+              placeholder="City or neighborhood"
+            />
           </div>
-        )}
+
+          <button className="btn-search-primary">
+            Search
+          </button>
+        </div>
       </section>
 
       {/* Horizontal Scrollable Categories Pills (Lead Directive) */}
