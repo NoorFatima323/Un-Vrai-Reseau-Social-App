@@ -1016,27 +1016,30 @@ body {
 }
 
 .popular-topics-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(102px, 1fr));
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 14px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .topic-chip {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 8px 12px;
+  padding: 9px 8px;
   border-radius: var(--radius-full);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-main);
   cursor: pointer;
   border: 1px solid rgba(0,0,0,0.03);
   transition: transform 0.2s, box-shadow 0.2s;
-  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
 }
 
 .topic-chip:hover {
@@ -1050,6 +1053,8 @@ body {
 
 .topic-chip-name {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Registration Footer Banner */
