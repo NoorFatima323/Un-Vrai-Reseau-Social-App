@@ -236,8 +236,9 @@ export default function App() {
   // Lead Directive: By default show 4 profiles, expanded shows all
   const displayedMembers = showAllMembers ? initialMembers : initialMembers.slice(0, 4);
 
-  // Category Pills Data matching Landing Page.jpeg reference mockup
+  // Category Pills Data matching Landing Page.jpeg reference mockup + All Categories at start
   const heroCategories = [
+    { name: 'All Categories', icon: Sparkles, color: '#D81B43' },
     { name: 'History', icon: Landmark, color: '#E11D48' },
     { name: 'Science', icon: FlaskConical, color: '#2563EB' },
     { name: 'Astronomy', icon: Orbit, color: '#7C3AED' },
@@ -374,12 +375,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* Category Filter Pills (Matching Landing Page.jpeg reference mockup) */}
+      {/* Category Filter Pills (Matching Landing Page.jpeg reference mockup + All Categories at start) */}
       <section className="categories-wrapper">
         <div className="categories-scroll">
           {heroCategories.map((cat, idx) => {
             const CatIcon = cat.icon;
-            const isActive = activeCategory === cat.name;
+            const isActive = (cat.name === 'All Categories' && activeCategory === 'All') || activeCategory === cat.name;
             return (
               <button
                 key={idx}
@@ -387,6 +388,9 @@ export default function App() {
                 onClick={() => {
                   if (cat.name === 'More') {
                     setShowAllTopics(true);
+                  } else if (cat.name === 'All Categories') {
+                    setActiveCategory('All');
+                    setSearchTopic('');
                   } else {
                     const nextCat = activeCategory === cat.name ? 'All' : cat.name;
                     setActiveCategory(nextCat);
