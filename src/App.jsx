@@ -44,6 +44,7 @@ import {
 
 export default function App() {
   const [showAllMembers, setShowAllMembers] = useState(false);
+  const [showAllTopics, setShowAllTopics] = useState(false);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTopic, setSearchTopic] = useState('');
   const [searchCity, setSearchCity] = useState('');
@@ -636,11 +637,16 @@ export default function App() {
           <h2 className="section-title">
             <Flame className="title-icon" /> Popular Topics
           </h2>
-          <button className="see-all-btn">See all</button>
+          <button
+            className="see-all-btn"
+            onClick={() => setShowAllTopics(!showAllTopics)}
+          >
+            {showAllTopics ? 'Show less' : 'See all'}
+          </button>
         </div>
 
         <div className="popular-topics-grid">
-          {popularTopics.map((topic, idx) => {
+          {(showAllTopics ? popularTopics : popularTopics.slice(0, 8)).map((topic, idx) => {
             const TopicIcon = topic.icon;
             return (
               <div
