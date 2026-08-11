@@ -516,8 +516,10 @@ export default function App() {
         <div className="steps-container">
           <div className="step-item">
             <div className="step-top-header">
-              <span className="step-number-circle">1</span>
-              <Search size={22} className="step-standalone-icon" />
+              <span className="step-num-badge">1</span>
+              <div className="step-icon-wrapper">
+                <Search size={20} className="step-icon" />
+              </div>
             </div>
             <h4 className="step-title">Find</h4>
             <p className="step-desc">
@@ -531,8 +533,10 @@ export default function App() {
 
           <div className="step-item">
             <div className="step-top-header">
-              <span className="step-number-circle">2</span>
-              <MessageSquare size={22} className="step-standalone-icon" />
+              <span className="step-num-badge">2</span>
+              <div className="step-icon-wrapper">
+                <MessageSquare size={20} className="step-icon" />
+              </div>
             </div>
             <h4 className="step-title">Connect</h4>
             <p className="step-desc">
@@ -546,8 +550,10 @@ export default function App() {
 
           <div className="step-item">
             <div className="step-top-header">
-              <span className="step-number-circle">3</span>
-              <Calendar size={22} className="step-standalone-icon" />
+              <span className="step-num-badge">3</span>
+              <div className="step-icon-wrapper">
+                <Calendar size={20} className="step-icon" />
+              </div>
             </div>
             <h4 className="step-title">Meet Up</h4>
             <p className="step-desc">
@@ -561,8 +567,10 @@ export default function App() {
 
           <div className="step-item">
             <div className="step-top-header">
-              <span className="step-number-circle">4</span>
-              <Handshake size={22} className="step-standalone-icon" />
+              <span className="step-num-badge">4</span>
+              <div className="step-icon-wrapper">
+                <Handshake size={20} className="step-icon" />
+              </div>
             </div>
             <h4 className="step-title">Share</h4>
             <p className="step-desc">
