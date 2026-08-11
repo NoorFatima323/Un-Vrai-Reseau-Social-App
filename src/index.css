@@ -813,28 +813,19 @@ body {
 }
 
 .steps-container {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin-top: 14px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.steps-container::-webkit-scrollbar {
-  display: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .step-item {
-  flex: 1;
-  min-width: 115px;
   background: white;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 14px 8px;
+  padding: 16px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -842,6 +833,7 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
   transition: transform 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .step-item:hover {

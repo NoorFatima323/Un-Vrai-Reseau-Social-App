@@ -528,10 +528,6 @@ export default function App() {
             </p>
           </div>
 
-          <div className="step-arrow-divider">
-            <span className="dashed-line"></span>
-          </div>
-
           <div className="step-item">
             <div className="step-top-header">
               <span className="step-num-badge">2</span>
@@ -545,10 +541,6 @@ export default function App() {
             </p>
           </div>
 
-          <div className="step-arrow-divider">
-            <span className="dashed-line"></span>
-          </div>
-
           <div className="step-item">
             <div className="step-top-header">
               <span className="step-num-badge">3</span>
@@ -560,10 +552,6 @@ export default function App() {
             <p className="step-desc">
               Agree on a time, public spot, and duration for your meeting.
             </p>
-          </div>
-
-          <div className="step-arrow-divider">
-            <span className="dashed-line"></span>
           </div>
 
           <div className="step-item">
