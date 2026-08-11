@@ -287,7 +287,7 @@ export default function App() {
               Exchange, learn, share your passions and meet inspiring people who matter in real life.
             </p>
             <button className="btn-primary">
-              Register for free <ArrowRight size={16} />
+              Register for free <ArrowRight size={14} />
             </button>
           </div>
 

@@ -214,22 +214,23 @@ body {
   background: linear-gradient(135deg, #E31B4C 0%, #C2183B 100%);
   color: white;
   border: none;
-  padding: 13px 26px;
+  padding: 9px 18px;
   border-radius: 9999px;
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(216, 27, 67, 0.3);
+  box-shadow: 0 3px 12px rgba(216, 27, 67, 0.25);
   transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  width: fit-content;
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(216, 27, 67, 0.4);
+  box-shadow: 0 5px 16px rgba(216, 27, 67, 0.35);
 }
 
 .btn-primary:active {
