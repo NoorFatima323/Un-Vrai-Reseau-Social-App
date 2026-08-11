@@ -39,7 +39,8 @@ import {
   Calendar,
   Rocket,
   Handshake,
-  Users
+  Users,
+  MoreHorizontal
 } from 'lucide-react';
 
 export default function App() {
@@ -235,20 +236,14 @@ export default function App() {
   // Lead Directive: By default show 4 profiles, expanded shows all
   const displayedMembers = showAllMembers ? initialMembers : initialMembers.slice(0, 4);
 
-  // Category Pills Data for Horizontal Scroll
-  const categories = [
-    { name: 'History', icon: Landmark },
-    { name: 'Science', icon: FlaskConical },
-    { name: 'Astronomy', icon: Orbit },
-    { name: 'Economy', icon: TrendingUp },
-    { name: 'Travel', icon: Plane },
-    { name: 'Music', icon: Music },
-    { name: 'Art & Design', icon: Palette },
-    { name: 'Psychology', icon: Brain },
-    { name: 'Environment', icon: Leaf },
-    { name: 'Cooking', icon: Utensils },
-    { name: 'Medicine', icon: Stethoscope },
-    { name: 'Literature', icon: BookOpen }
+  // Category Pills Data matching Landing Page.jpeg reference mockup
+  const heroCategories = [
+    { name: 'History', icon: Landmark, color: '#E11D48' },
+    { name: 'Science', icon: FlaskConical, color: '#2563EB' },
+    { name: 'Astronomy', icon: Orbit, color: '#7C3AED' },
+    { name: 'Economy', icon: TrendingUp, color: '#16A34A' },
+    { name: 'Travel', icon: Plane, color: '#EA580C' },
+    { name: 'More', icon: MoreHorizontal, color: '#6B7280' }
   ];
 
   // 16 Popular Topics Data (4 rows x 4 chips per row = 16 chips total)
@@ -379,30 +374,33 @@ export default function App() {
         </div>
       </section>
 
-      {/* Horizontal Scrollable Categories Pills (Lead Directive) */}
-      <div className="categories-wrapper">
+      {/* Category Filter Pills (Matching Landing Page.jpeg reference mockup) */}
+      <section className="categories-wrapper">
         <div className="categories-scroll">
-          <button
-            className={`category-pill ${activeCategory === 'All' ? 'active' : ''}`}
-            onClick={() => setActiveCategory('All')}
-          >
-            All Categories
-          </button>
-          {categories.map((cat, idx) => {
-            const IconComp = cat.icon;
+          {heroCategories.map((cat, idx) => {
+            const CatIcon = cat.icon;
+            const isActive = activeCategory === cat.name;
             return (
               <button
                 key={idx}
-                className={`category-pill ${activeCategory === cat.name ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.name)}
+                className={`category-pill ${isActive ? 'active' : ''}`}
+                onClick={() => {
+                  if (cat.name === 'More') {
+                    setShowAllTopics(true);
+                  } else {
+                    const nextCat = activeCategory === cat.name ? 'All' : cat.name;
+                    setActiveCategory(nextCat);
+                    setSearchTopic(nextCat === 'All' ? '' : nextCat);
+                  }
+                }}
               >
-                <IconComp className="category-pill-icon" />
-                {cat.name}
+                <CatIcon size={16} style={{ color: cat.color }} className="category-pill-icon" />
+                <span>{cat.name}</span>
               </button>
             );
           })}
         </div>
-      </div>
+      </section>
 
       {/* New Members Section (2 Profiles Per Row on Mobile per Lead Directive) */}
       <section>
