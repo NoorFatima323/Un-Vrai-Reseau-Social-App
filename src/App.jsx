@@ -31,6 +31,7 @@ import {
   Stethoscope,
   BookOpen,
   SlidersHorizontal,
+  ChevronLeft,
   ChevronRight,
   ChevronDown,
   X,
@@ -45,6 +46,40 @@ export default function App() {
   const [searchTopic, setSearchTopic] = useState('');
   const [searchCity, setSearchCity] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  // Hero Carousel Images Data (5 Real Meetup Images)
+  const heroImages = [
+    {
+      url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+      alt: 'Real meetups cafe discussion'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+      alt: 'Group working and sharing ideas'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
+      alt: 'Friends meeting outdoors'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=800&q=80',
+      alt: 'Creative workshop discussion'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80',
+      alt: 'Community gathering and conversation'
+    }
+  ];
+
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+
+  const nextHeroSlide = () => {
+    setCurrentHeroSlide((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevHeroSlide = () => {
+    setCurrentHeroSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
 
   // Sample Member Data (8 Profiles)
   const initialMembers = [
@@ -228,17 +263,35 @@ export default function App() {
           <div className="hero-media-col">
             <div className="hero-image-card">
               <img
-                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
-                alt="Real meetups cafe discussion"
+                src={heroImages[currentHeroSlide].url}
+                alt={heroImages[currentHeroSlide].alt}
                 className="hero-img"
               />
+              <button
+                className="carousel-arrow left"
+                onClick={prevHeroSlide}
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                className="carousel-arrow right"
+                onClick={nextHeroSlide}
+                aria-label="Next slide"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
+
             <div className="hero-dots">
-              <span className="dot active"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
-              <span className="dot"></span>
+              {heroImages.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`dot ${currentHeroSlide === idx ? 'active' : ''}`}
+                  onClick={() => setCurrentHeroSlide(idx)}
+                  title={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
